@@ -5,8 +5,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SafeDivision {
-    private final Integer firstNumber;
-    private final Integer secondNumber;
+    private Integer firstNumber;
+    private Integer secondNumber;
 
     public SafeDivision() {
         this.firstNumber = inputInteger(" first");
