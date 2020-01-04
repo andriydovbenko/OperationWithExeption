@@ -5,7 +5,7 @@ import com.cursor.exeption.driving.CarNotReadyToDriveException;
 public class Car {
 
     private boolean isGasolineInsideOFTank = false;
-    private final String MODEL;
+    private String MODEL;
 
     public Car(String model) {
         this.MODEL = model;

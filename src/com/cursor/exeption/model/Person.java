@@ -4,9 +4,9 @@ import com.cursor.exeption.driving.CarNotReadyToDriveException;
 import com.cursor.exeption.driving.NotReadyToDriveException;
 
 public class Person {
-    private final String NAME;
+    private String NAME;
     private boolean isSober;
-    private final Car AUDI;
+    private Car AUDI;
 
     public Person(String name, String carModel) {
         this.NAME = name;
