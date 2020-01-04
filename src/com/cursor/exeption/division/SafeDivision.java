@@ -11,19 +11,13 @@ public class SafeDivision {
     public SafeDivision() {
         this.firstNumber = inputInteger(" first");
         this.secondNumber = inputInteger(" second");
-        try {
-            divideFirstNumberBySecond();
-        } catch (DivideByZeroException e) {
-            System.out.println(e.getMessage() + "\n" + getClass().getSimpleName());
-        }
     }
 
     public Integer inputInteger(String number) {
         System.out.println("Enter" + number + " integer: ");
         Integer integerNumber = null;
         while (integerNumber == null) {
-            try {
-                Scanner input = new Scanner(System.in);
+            try (Scanner input = new Scanner(System.in)){
                 integerNumber = input.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Input error. Enter only digits");
@@ -32,7 +26,7 @@ public class SafeDivision {
         return integerNumber;
     }
 
-    private void divideFirstNumberBySecond() {
+    public void divideFirstNumberBySecond() {
         if (secondNumber != 0) {
             DecimalFormat decimalFormat = new DecimalFormat("#.###");
             System.out.println(firstNumber + " / " + secondNumber + " = " +
