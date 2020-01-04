@@ -1,5 +1,6 @@
 package com.cursor.exeption;
 
+import com.cursor.exeption.division.DivideByZeroException;
 import com.cursor.exeption.division.SafeDivision;
 import com.cursor.exeption.driving.NotReadyToDriveException;
 import com.cursor.exeption.model.Person;
@@ -10,8 +11,16 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Executor {
-    public void checkExampleOfExceptions() {
-        //first task
+
+    public void executeProject() {
+        executeExampleOfCarsExceptions();
+        executeExampleOfNullPointerException();
+        executeExampleOfIOException();
+        executeSafeDivision();
+        executeStackTrace();
+    }
+
+    private void executeExampleOfCarsExceptions() {
         String nameOfPerson = "Anton";
         String carOfPerson = "Audi";
         Person anton = new Person(nameOfPerson, carOfPerson);
@@ -34,6 +43,9 @@ public class Executor {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private void executeExampleOfNullPointerException() {
         Person nonExist = null;
         try {
             System.out.println("\nNon exist person is trying to drive a car:");
@@ -41,18 +53,28 @@ public class Executor {
         } catch (NullPointerException | NotReadyToDriveException e) {
             System.out.println(e.getClass().getSimpleName());
         }
-        String file = "some path";
+    }
+
+    private void executeExampleOfIOException() {
+        String file = "non exist path";
         System.out.println("\nExample IOException:");
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         } catch (IOException e) {
             System.out.println(e.getClass().getSimpleName());
         }
+    }
 
-        //second task
-        new SafeDivision();
+    private void executeSafeDivision() {
+        SafeDivision safeDivision = new SafeDivision();
+        try {
+            safeDivision.divideFirstNumberBySecond();
+        } catch (DivideByZeroException e) {
+            System.out.println(e.getMessage() + "\n" + getClass().getSimpleName());
+        }
+    }
 
-        //third task
+    private void executeStackTrace() {
         try {
             new ExceptionStackTrace().catchAndRethrowException();
         } catch (Exception e) {
