@@ -12,7 +12,7 @@ public class SafeDivision {
         this.firstNumber = inputInteger(" first");
         this.secondNumber = inputInteger(" second");
         try {
-            divideFirstInSecondNumber();
+            divideFirstNumberBySecond();
         } catch (DivideByZeroException e) {
             System.out.println(e.getMessage() + "\n" + getClass().getSimpleName());
         }
@@ -32,7 +32,7 @@ public class SafeDivision {
         return integerNumber;
     }
 
-    private void divideFirstInSecondNumber() {
+    private void divideFirstNumberBySecond() {
         if (secondNumber != 0) {
             DecimalFormat decimalFormat = new DecimalFormat("#.###");
             System.out.println(firstNumber + " / " + secondNumber + " = " +
